@@ -13,7 +13,7 @@
             {{todo.title}}
           </ion-col>
           <ion-col>
-            {{todo.date}}{{dateTime}}
+            {{todo.date | date:'EEE, dd.MM.yyyy, hh:mm' }}
           </ion-col>
           <ion-col>
             <ion-button color="danger" *ngIf="!todo.done && !todo.archived"
@@ -29,8 +29,8 @@
     <ion-input type="text" placeholder="New Todo Title" [(ngModel)]="newToDo.title"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>DD MMM YYYY HH:mm</ion-label>
-    <ion-datetime displayFormat="D MMM YYYY H:mm" min="2019" max="2099" [(ngModel)]="newToDo.date"></ion-datetime>
+    <ion-label>Please insert date</ion-label>
+    <ion-datetime displayFormat="D MMM YYYY HH:mm" min="2019" max="2099" [(ngModel)]="newToDo.date"></ion-datetime>
   </ion-item>
 
 

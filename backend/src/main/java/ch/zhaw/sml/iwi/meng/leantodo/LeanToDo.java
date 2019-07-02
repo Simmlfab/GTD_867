@@ -2,8 +2,6 @@ package ch.zhaw.sml.iwi.meng.leantodo;
 
 import java.util.Date;
 
-import javax.print.attribute.standard.DateTimeAtCreation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
