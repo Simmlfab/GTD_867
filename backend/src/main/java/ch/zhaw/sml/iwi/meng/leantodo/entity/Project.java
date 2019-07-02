@@ -19,8 +19,8 @@ public class Project {
     private String title;
 
     private String owner;
-    private String description: 
-    private Int priority:
+    private String description;
+    private Int priority;
 
     @OneToMany
     private List<ToDo> toDos = new ArrayList<>();
