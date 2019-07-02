@@ -1,3 +1,5 @@
+import { Time } from '@angular/common';
+
 export class ToDo {
     public id: number;
     public title: string;
