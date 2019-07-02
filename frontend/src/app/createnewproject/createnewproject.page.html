@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+      <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <form (ngSubmit)="onSubmit()">
+          <ion-row>
+              <ion-item>
+                  <ion-label floating primary>Titel</ion-label>
+                  <ion-input [(ngModel)]="project.title" type="text" name="title" autocapitalize="off">
+                  </ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating primary>Beschreibung</ion-label>
+                  <ion-input [(ngModel)]="project.description" type="text" name="description" autocapitalize="off">
+                  </ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating primary>Priorität</ion-label>
+                  <ion-select [(ngModel)]="project.priority" name="priority">
+                      <ion-option value=1>schwach</ion-option>
+                      <ion-option value=2>mittel</ion-option>
+                      <ion-option value=3>hoch</ion-option>
+                  </ion-select>
+              </ion-item>
+          </ion-row>
+          <ion-row>
+              <button ion-button class="submit-btn" type="submit">Speichern</button>
+          </ion-row>
+      </form>
+      <button ion-button color="danger" [hidden]=hiddenDeleteButton (click)="deleteTask()">Löschen</button>
+  </ion-list>
+</ion-content>
