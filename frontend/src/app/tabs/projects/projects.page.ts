@@ -19,7 +19,7 @@ export class ProjectsPage implements OnInit {
   public updateProject(project: Project) {
     this.projectService.updateProject(project).subscribe(
       data => {
-        console.log("Successfully updated todo.");
+        console.log("Successfully updated project.");
         this.reloadAllProjects();
       }, err => {
         console.log(err);
