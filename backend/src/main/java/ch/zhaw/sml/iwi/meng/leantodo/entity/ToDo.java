@@ -3,6 +3,9 @@ package ch.zhaw.sml.iwi.meng.leantodo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -113,7 +116,7 @@ public class ToDo {
      * @param doneDate the doneDate to set
      */
     public void setDoneDate(Date doneDate) {
-        this.owner = doneDate;
+        this.doneDate = doneDate;
     }
     
 }
