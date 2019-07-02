@@ -20,7 +20,7 @@ public class Project {
 
     private String owner;
     private String description: 
-    private String priorty:
+    private String priority:
 
     @OneToMany
     private List<ToDo> toDos = new ArrayList<>();
@@ -57,11 +57,11 @@ public class Project {
         this.description = description;
     }
     public String getPriotity() {
-        return priorty;
+        return priority;
     }
 
     public void setPriority(String priorty) {
-        this.priorty = priorty;
+        this.priority = priority;
     }
 
     public List<ToDo> getToDos() {
