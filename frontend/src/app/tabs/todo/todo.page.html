@@ -5,8 +5,6 @@
 </ion-header>
 
 <ion-content>
-
-
   <ion-list>
     <ion-item *ngFor="let todo of allToDos">
       <ion-grid>
@@ -15,8 +13,13 @@
             {{todo.title}}
           </ion-col>
           <ion-col>
-            <ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
-            <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
+            {{todo.date}}{{dateTime}}
+          </ion-col>
+          <ion-col>
+            <ion-button color="danger" *ngIf="!todo.done && !todo.archived"
+              (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
+            <ion-button color="success" *ngIf="todo.done && !todo.archived"
+              (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -25,6 +28,12 @@
   <ion-item>
     <ion-input type="text" placeholder="New Todo Title" [(ngModel)]="newToDo.title"></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label>DD MMM YYYY HH:mm</ion-label>
+    <ion-datetime displayFormat="D MMM YYYY H:mm" min="2019" max="2099" [(ngModel)]="newToDo.date"></ion-datetime>
+  </ion-item>
+
+
   <div padding>
     <ion-button (click)="addToDo()">Add New ToDo</ion-button>
   </div>
