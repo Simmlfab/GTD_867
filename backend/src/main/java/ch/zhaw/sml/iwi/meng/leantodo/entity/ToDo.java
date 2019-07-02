@@ -23,6 +23,11 @@ public class ToDo {
 
     private boolean archived = false;
     private boolean done = false;
+    
+    @Temporal(TemporalType.TIMESTAMP) 
+    private Date doneDate;
+
+
 
     @JsonIgnore
     private String owner;
@@ -95,6 +100,20 @@ public class ToDo {
      */
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    /**
+     * @return the doneDate
+     */
+    public Date getDoneDate() {
+        return doneDate;
+    }
+
+    /**
+     * @param doneDate the doneDate to set
+     */
+    public void setDoneDate(Date doneDate) {
+        this.owner = doneDate;
     }
     
 }
