@@ -19,6 +19,8 @@ import ch.zhaw.sml.iwi.meng.leantodo.entity.ToDo;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.ToDoRepository;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.User;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.UserRepository;
+import ch.zhaw.sml.iwi.meng.leantodo.entity.Project;
+import ch.zhaw.sml.iwi.meng.leantodo.entity.ProjectRepository;
 
 @SpringBootApplication
 @EnableWebSecurity
@@ -33,10 +35,12 @@ public class LeanToDo implements CommandLineRunner {
 
     @Autowired
     private RoleRepository roleRepository;
-
     
     @Autowired
     private ToDoRepository toDoRepository;
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -64,6 +68,20 @@ public class LeanToDo implements CommandLineRunner {
         roleRepository.save(r);
         u.getRoles().add(r);
         userRepository.save(u);
+
+        Project project = new Project();
+        project.setTitle("Geburtstagsparty für Kevin organisieren");
+        project.setDescription("Organisation von Kevins Geburtstag. Raum mieten, Freunde Einladen, Sachen einkafen etc.");
+        project.setOwner("user");
+        project.setPriority(1);
+        projectRepository.save(project);
+
+        project = new Project();
+        project.setTitle("Ninjaausbildung");
+        project.setDescription("Die wichtigste Ausbildung meines Lebens. Es gibt nichts besseres als ein Ninja zu sein. Danach muss ich auch meine Katze ausbilden.");
+        project.setOwner("user");
+        project.setPriority(2);
+        projectRepository.save(project);
 
         ToDo toDo = new ToDo();
         toDo.setTitle("Finish This app");
