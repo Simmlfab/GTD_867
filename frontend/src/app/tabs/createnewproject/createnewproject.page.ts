@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Project } from '../model/project';
+import { Project } from '../../model/project';
 import { NavController, NavParams, AlertController } from '@ionic/angular';
 
 @Component({
