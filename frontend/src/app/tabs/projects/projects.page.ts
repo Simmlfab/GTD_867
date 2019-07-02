@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
+import { Project } from 'src/app/model/project';
 
 @Component({
   selector: 'app-projects',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private projectService: ProjectService) { }
+
+  public allProject: Project[] = [];
+  public newProject: Project = new Project();
 
   ngOnInit() {
+    
   }
 
 }
