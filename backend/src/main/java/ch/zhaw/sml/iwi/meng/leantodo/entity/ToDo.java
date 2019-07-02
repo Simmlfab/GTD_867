@@ -5,7 +5,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -27,6 +30,11 @@ public class ToDo {
 
     private boolean archived = false;
     private boolean done = false;
+    
+    @Temporal(TemporalType.TIMESTAMP) 
+    private Date doneDate;
+
+
 
     @JsonIgnore
     private String owner;
@@ -110,6 +118,20 @@ public class ToDo {
      */
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    /**
+     * @return the doneDate
+     */
+    public Date getDoneDate() {
+        return doneDate;
+    }
+
+    /**
+     * @param doneDate the doneDate to set
+     */
+    public void setDoneDate(Date doneDate) {
+        this.doneDate = doneDate;
     }
     
 }

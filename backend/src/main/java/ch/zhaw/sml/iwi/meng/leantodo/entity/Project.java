@@ -19,6 +19,8 @@ public class Project {
     private String title;
 
     private String owner;
+    private String description;
+    private int priority;
 
     @OneToMany
     private List<ToDo> toDos = new ArrayList<>();
@@ -45,6 +47,21 @@ public class Project {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public int getPriotity() {
+        return priority;
+    }
+
+    public void setPriority(int priorty) {
+        this.priority = priority;
     }
 
     public List<ToDo> getToDos() {
