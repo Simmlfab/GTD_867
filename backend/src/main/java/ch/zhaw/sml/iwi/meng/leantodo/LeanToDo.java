@@ -22,7 +22,6 @@ import ch.zhaw.sml.iwi.meng.leantodo.entity.UserRepository;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class LeanToDo implements CommandLineRunner {
-/*  */
     public static void main(String[] args) {
         SpringApplication.run(LeanToDo.class, args);
     }
