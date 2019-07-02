@@ -3,4 +3,5 @@ export class ToDo {
     public title: string;
     public archived: boolean;
     public done: boolean;
+    public date: Date;
 }

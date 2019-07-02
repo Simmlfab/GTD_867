@@ -1,5 +1,7 @@
 package ch.zhaw.sml.iwi.meng.leantodo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,6 +22,8 @@ public class ToDo {
     private Long id;
 
     private String title;
+
+    private Date date;
 
     private boolean archived = false;
     private boolean done = false;
@@ -53,6 +57,17 @@ public class ToDo {
      */
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     /**

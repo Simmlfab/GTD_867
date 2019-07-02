@@ -14,12 +14,13 @@ export class TodoPage implements OnInit {
 
   public allToDos: ToDo[] = [];
   public newToDo: ToDo = new ToDo();
+
   ngOnInit() {
     this.reloadAllToDos();
   }
 
   async addToDo() {
-    if (this.newToDo.title != null && this.newToDo.title != "") {
+    if (this.newToDo.title != null && this.newToDo.title != "") { 
       this.toDoService.addNewToDo(this.newToDo).subscribe(
         data => {
           console.log("Successfully added new todo.");
