@@ -60,7 +60,7 @@ public class Project {
         return priority;
     }
 
-    public void setPriority(int priorty) {
+    public void setPriority(int priority) {
         this.priority = priority;
     }
 
