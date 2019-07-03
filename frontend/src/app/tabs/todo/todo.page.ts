@@ -66,9 +66,4 @@ export class TodoPage implements OnInit {
       }
     );
   }
-
-  
-
-
-
 }
