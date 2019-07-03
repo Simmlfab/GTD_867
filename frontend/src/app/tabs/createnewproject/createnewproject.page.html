@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list>
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="addProject()">
           <ion-row>
               <ion-item>
                   <ion-label floating primary>Titel</ion-label>
@@ -31,7 +31,7 @@
               </ion-item>
           </ion-row>
           <ion-row>
-              <button ion-button class="submit-btn" type="submit">Speichern</button>
+              <button ion-button class="submit-btn" type="submit">Hinzufügen</button>
           </ion-row>
       </form>
       <button ion-button color="danger" [hidden]=hiddenDeleteButton (click)="deleteTask()">Löschen</button>
