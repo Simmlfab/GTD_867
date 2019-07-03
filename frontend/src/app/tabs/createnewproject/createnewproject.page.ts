@@ -23,7 +23,7 @@ export class CreatenewprojectPage implements OnInit {
         data => {
           console.log("Successfully added new project.");
           this.newProject = new Project();
-          this.router.navigateByUrl('/projects');
+          this.router.navigateByUrl('/tabs/projects');
         }, err => {
           console.log(err);
           this.router.navigateByUrl('/login');

@@ -31,6 +31,15 @@ public class ProjectController {
         newProject.setOwner(owner);
         projectRepository.save(newProject);
     }
+    public void updateProject(Project project, String owner) {
+        Project orig = projectRepository.getOne(project.getId());
+        // Check if the original ToDo was present and that it belonged to the same owner
+        if(orig == null || !orig.getOwner().equals(owner)) {
+            return;
+        }
+        // Ok, let's overwrite the existing toDo.
+        projectRepository.save(project);
+    }
 
     public void addToDo(Long projectId, ToDo toDo, String owner) {
         Project project = projectRepository.getOne(projectId);
