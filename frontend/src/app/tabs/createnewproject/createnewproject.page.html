@@ -10,25 +10,25 @@
 <ion-content >
           <ion-row>
               <ion-item>
-                  <ion-label floating primary>Titel</ion-label>
-                  <ion-input [(ngModel)]="newProject.title" type="text" placeholder="Titel eingeben" required="True">
+                  <ion-label floating primary>Title</ion-label>
+                  <ion-input [(ngModel)]="newProject.title" type="text" placeholder="Add title" required="True">
                   </ion-input>
               </ion-item>
               </ion-row>
               <ion-row>
               <ion-item>
-                  <ion-label floating primary>Beschreibung</ion-label>
-                  <ion-textarea [(ngModel)]="newProject.description" type="text" placeholder="Beschreibung eingeben" autoGrow="True">
+                  <ion-label floating primary>Description</ion-label>
+                  <ion-textarea [(ngModel)]="newProject.description" type="text" placeholder="" autoGrow="True">
                   </ion-textarea>
               </ion-item>
               </ion-row>
               <ion-row>
               <ion-item>
-                  <ion-label floating primary>Priorität</ion-label>
+                  <ion-label floating primary>Priority</ion-label>
                   <ion-select [(ngModel)]="newProject.priority" required="True">
-                      <ion-select-option value=1>tief</ion-select-option>
-                      <ion-select-option value=2>mittel</ion-select-option>
-                      <ion-select-option value=3>hoch</ion-select-option>
+                      <ion-select-option value=1>low</ion-select-option>
+                      <ion-select-option value=2>middle</ion-select-option>
+                      <ion-select-option value=3>high</ion-select-option>
                     </ion-select>
               </ion-item>
             </ion-row>
