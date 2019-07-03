@@ -27,6 +27,9 @@ export class ProjectsPage implements OnInit {
       }
     );
   }
+  ionViewDidEnter() {
+    this.reloadAllProjects()
+  }
   public reloadAllProjects() {
     this.projectService.getAllProjects().subscribe(
       data => {

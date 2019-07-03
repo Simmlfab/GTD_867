@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import { Project } from 'src/app/model/project';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-createnewproject',
@@ -18,7 +19,7 @@ export class CreatenewprojectPage implements OnInit {
   }
 
   async addProject() {
-    if (this.newProject.title != null && this.newProject.title != "") { 
+    if (this.newProject.title != null && this.newProject.title != "" && this.newProject.priority !=null ) { 
       this.projectService.addNewProject(this.newProject).subscribe(
         data => {
           console.log("Successfully added new project.");
@@ -32,4 +33,7 @@ export class CreatenewprojectPage implements OnInit {
     }
   }
 
+  async backProject(){
+    this.router.navigateByUrl('/tabs/projects');
+  }
 }
