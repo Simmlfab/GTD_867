@@ -10,6 +10,7 @@ import { Project } from 'src/app/model/project';
 })
 export class ProjectsPage implements OnInit {
 
+<<<<<<< HEAD
   constructor(private router: Router, private projectService: ProjectService) { }
 
   public allProject: Project[] = [];
@@ -17,6 +18,34 @@ export class ProjectsPage implements OnInit {
 
   ngOnInit() {
     
+=======
+  constructor(private router:Router, private projectService:ProjectService ) { }
+  public allProjects: Project[] = [];
+
+  ngOnInit() {
+    this.reloadAllProjects();
+  }
+  public updateProject(project: Project) {
+    this.projectService.updateProject(project).subscribe(
+      data => {
+        console.log("Successfully updated todo.");
+        this.reloadAllProjects();
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/login');
+      }
+    );
+  }
+  public reloadAllProjects() {
+    this.projectService.getAllProjects().subscribe(
+      data => {
+        this.allProjects = data;
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/login');
+      }
+    );
+>>>>>>> e531e8216fbcb217191f2f14d096ab258265b07b
   }
 
 }
