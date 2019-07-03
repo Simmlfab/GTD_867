@@ -42,6 +42,15 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/timerecord',
         pathMatch: 'full'
+      },
+      {
+        path: 'archived',
+        children: [
+          {
+            path: '',
+            loadChildren: './archived/archived.module#ArchivedPageModule'
+          }
+        ]
       }
     ]
   },

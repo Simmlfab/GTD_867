@@ -12,5 +12,8 @@ public interface ToDoRepository extends JpaRepository<ToDo,Long> {
    
     @Query("SELECT t FROM ToDo as t WHERE t.owner = ?1 AND t.archived = false")
     public List<ToDo> findAllButArchivedByOwner(String owner); 
+
+    @Query("SELECT t FROM ToDo as t WHERE t.owner = ?1 AND t.archived = true")
+    public List<ToDo> findAllArchivedByOwner(String owner);
     
 }
