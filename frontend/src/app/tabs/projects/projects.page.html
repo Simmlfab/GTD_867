@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item >
+    <ion-item *ngFor="let project of allProjects" >
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -26,4 +26,7 @@
       </ion-grid>
     </ion-item>
   </ion-list>
+  <div padding>
+      <ion-button expand="Block" shape="round" >Add New Project</ion-button> 
+  </div>
 </ion-content>
