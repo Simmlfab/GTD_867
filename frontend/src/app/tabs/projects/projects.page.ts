@@ -10,15 +10,6 @@ import { Project } from 'src/app/model/project';
 })
 export class ProjectsPage implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private router: Router, private projectService: ProjectService) { }
-
-  public allProject: Project[] = [];
-  public newProject: Project = new Project();
-
-  ngOnInit() {
-    
-=======
   constructor(private router:Router, private projectService:ProjectService ) { }
   public allProjects: Project[] = [];
 
@@ -45,7 +36,6 @@ export class ProjectsPage implements OnInit {
         this.router.navigateByUrl('/login');
       }
     );
->>>>>>> e531e8216fbcb217191f2f14d096ab258265b07b
   }
 
 }
