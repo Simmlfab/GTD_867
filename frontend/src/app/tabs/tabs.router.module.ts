@@ -26,6 +26,10 @@ const routes: Routes = [
           {
             path: 'createnewproject',
             loadChildren: './createnewproject/createnewproject.module#CreatenewprojectPageModule'
+          },
+          {
+            path: ':id',
+            loadChildren: './projectdetail/projectdetail.module#ProjectdetailPageModule'
           }
         ]
       },

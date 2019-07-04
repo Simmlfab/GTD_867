@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let project of allProjects" >
+    <ion-item *ngFor="let project of allProjects"  >
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -17,7 +17,7 @@
             
               <ion-card-content>
                {{project.description}} <br>
-                <ion-button shape="round">Detail</ion-button>
+                <ion-button shape="round" [routerLink]="['/tabs/projects', project.id]">Detail</ion-button>
               </ion-card-content>
             </ion-card>
           </ion-col>
@@ -25,6 +25,7 @@
       </ion-grid>
     </ion-item>
   </ion-list>
+  
   <div padding>
       <ion-button expand="Block" shape="round" routerLink="/tabs/projects/createnewproject" >Add New Project</ion-button> 
   </div>
