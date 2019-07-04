@@ -16,6 +16,10 @@ export class TodoService {
     return this.http.get<ToDo[]>(this.apiUrl + '/api/todo', { withCredentials: true });
   }
 
+  public getAllArchivedToDos(): Observable<ToDo[]> {
+    return this.http.get<ToDo[]>(this.apiUrl + '/api/archived/todo', { withCredentials: true });
+  }
+
   public addNewToDo(newToDo: ToDo) {
     return this.http.post(this.apiUrl + '/api/todo', newToDo, { withCredentials: true });
   }
