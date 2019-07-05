@@ -3,6 +3,7 @@ package ch.zhaw.sml.iwi.meng.leantodo.boundary;
 import java.security.Principal;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,6 +28,9 @@ public class ProjectEndpoint {
     public List<Project> getProjects(Principal principal) {
         return projectController.listAllProjects(principal.getName());
     }
+
+    
+
     @RequestMapping(path = "/api/project", method = RequestMethod.PUT)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
     public void updateProject(@RequestBody Project project, Principal principal) {

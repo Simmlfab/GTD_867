@@ -23,6 +23,9 @@ public class ProjectController {
     public List<Project> listAllProjects(String loginName) {
         return projectRepository.findByOwner(loginName);
     }
+    public Project projectByIdAndOwner(String loginName, Long id) {
+        return projectRepository.findProjectByIdAndOwner(loginName, id);
+    }
 
     public void persistProject(Project newProject, String owner) {
         newProject.setId(null);

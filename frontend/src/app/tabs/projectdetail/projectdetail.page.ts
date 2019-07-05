@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/model/project';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
@@ -9,34 +9,31 @@ import { ProjectService } from 'src/app/services/project.service';
   styleUrls: ['./projectdetail.page.scss'],
 })
 export class ProjectdetailPage implements OnInit {
+  public projectID: Project = new Project;
+  constructor(private router:Router, private activatedRoute:ActivatedRoute, private projectService:ProjectService ) { }
   
-  constructor(private router:Router, private projectService:ProjectService ) { }
-  public projectid: Project;
+  id: number ; 
 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.params.id;
+    console.log(this.id);
+    this.reloadProject();
+
+  }
+  ionViewDidEnter(){
     this.reloadProject();
   }
-  public updateProject(project: Project) {
-    this.projectService.updateProject(project).subscribe(
-      data => {
-        console.log("Successfully updated project.");
-        this.reloadProject();
-      }, err => {
-        console.log(err);
-        this.router.navigateByUrl('/login');
-      }
-    );
-  }
-  ionViewDidEnter() {
-    this.reloadProject()
-  }
+
   public reloadProject() {
-    this.projectService.getProject().subscribe(
+    this.projectService.getProject(this.id).subscribe(
       data => {
-        this.projectid = data;
+        this.projectID = data;
+        console.log("ok2")
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/login');
       }
     );
+  
   }
+}
