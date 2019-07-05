@@ -59,7 +59,7 @@
       </ion-item>
     </ion-list>
     <ion-item>
-      <ion-input type="text" placeholder="   New Todo Title" ></ion-input>
+      <ion-input type="text" placeholder="   New Todo Title" [(ngModel)] ="newToDo.title" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-datetime placeholder="Please insert date" displayFormat="D MMM YYYY HH:mm" min="2019" max="2099"></ion-datetime>
