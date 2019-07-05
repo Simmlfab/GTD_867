@@ -8,35 +8,32 @@
 
 
 <ion-content >
-          <ion-row>
-              <ion-item>
-                  <ion-label floating primary>Title</ion-label>
-                  <ion-input [(ngModel)]="newProject.title" type="text" placeholder="Add title" required="True">
-                  </ion-input>
-              </ion-item>
-              </ion-row>
-              <ion-row>
-              <ion-item>
-                  <ion-label floating primary>Description</ion-label>
-                  <ion-textarea [(ngModel)]="newProject.description" type="text" placeholder="" autoGrow="True">
-                  </ion-textarea>
-              </ion-item>
-              </ion-row>
-              <ion-row>
-              <ion-item>
-                  <ion-label floating primary>Priority</ion-label>
-                  <ion-select [(ngModel)]="newProject.priority" required="True">
-                      <ion-select-option value="low">low</ion-select-option>
-                      <ion-select-option value="middle">middle</ion-select-option>
-                      <ion-select-option value="high">high</ion-select-option>
-                    </ion-select>
-              </ion-item>
-            </ion-row>
-            <div padding>
-                <ion-button (click)="addProject()">Add New Project</ion-button>
-            </div>
-            <div padding>
-                    <ion-button (click)="backProject()">Back to Project</ion-button>
-            </div>
-      
+        <ion-row>
+            <ion-item>
+                <ion-label floating primary>Title</ion-label>
+                <ion-input [(ngModel)]="newProject.title" type="text" placeholder="Add title" required="True">
+                </ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row>
+            <ion-item>
+                <ion-label floating primary>Description</ion-label>
+                <ion-textarea [(ngModel)]="newProject.description" type="text" placeholder="" autoGrow="True">
+                </ion-textarea>
+            </ion-item>
+        </ion-row>
+        <ion-row>
+            <ion-item>
+                <ion-label floating primary>Priority</ion-label>
+                <ion-select [(ngModel)]="newProject.priority" required="True">
+                    <ion-select-option value="low">low</ion-select-option>
+                    <ion-select-option value="middle">middle</ion-select-option>
+                    <ion-select-option value="high">high</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-row>
+        <div padding>
+            <ion-button (click)="addProject()">Add New Project</ion-button>
+            <ion-button (click)="backProject()">Back to Project</ion-button>
+        </div>
 </ion-content>
