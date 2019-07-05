@@ -1,6 +1,7 @@
 package ch.zhaw.sml.iwi.meng.leantodo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.print.attribute.standard.DateTimeAtCreation;
 
@@ -71,20 +72,6 @@ public class LeanToDo implements CommandLineRunner {
         u.getRoles().add(r);
         userRepository.save(u);
 
-        Project project = new Project();
-        project.setTitle("Geburtstagsparty für Kevin organisieren");
-        project.setDescription("Organisation von Kevins Geburtstag. Raum mieten, Freunde Einladen, Sachen einkafen etc.");
-        project.setOwner("user");
-        project.setPriority(1);
-        projectRepository.save(project);
-
-        project = new Project();
-        project.setTitle("Ninjaausbildung");
-        project.setDescription("Die wichtigste Ausbildung meines Lebens. Es gibt nichts besseres als ein Ninja zu sein. Danach muss ich auch meine Katze ausbilden.");
-        project.setOwner("user");
-        project.setPriority(2);
-        projectRepository.save(project);
-
         ToDo toDo = new ToDo();
         toDo.setTitle("Finish This app");
         toDo.setOwner("user");
@@ -96,5 +83,41 @@ public class LeanToDo implements CommandLineRunner {
         toDo.setOwner("user");
         toDo.setDate(new Date());
         toDoRepository.save(toDo);
+
+        toDo = new ToDo();
+        toDo.setTitle("Geburtstagskuchen backen");
+        toDo.setOwner("user");
+        toDo.setDate(new Date());
+        toDoRepository.save(toDo);
+
+
+        Project project = new Project();
+        project.setTitle("Geburtstagsparty für Kevin organisieren");
+        project.setDescription("Organisation von Kevins Geburtstag. Raum mieten, Freunde Einladen, Sachen einkafen etc.");
+        project.setOwner("user");
+        project.setPriority(1);
+        project.getToDos().add(toDo);
+        projectRepository.save(project);
+
+        project = new Project();
+        project.setTitle("Ninjaausbildung");
+        project.setDescription("Die wichtigste Ausbildung meines Lebens. Es gibt nichts besseres als ein Ninja zu sein. Danach muss ich auch meine Katze ausbilden.");
+        project.setOwner("user");
+        project.setPriority(2);
+        projectRepository.save(project);
+
+        /* List<ToDo> noProToDoList = toDoRepository.findNoProjectToDo();
+        List<ToDo> allToDoList = toDoRepository.findAll();
+        allToDoList.removeAll(noProToDoList);
+        for (ToDo t : allToDoList) {
+            System.out.println(t.getTitle());
+        } */
+
+        /* List<ToDo> noProToDoList = toDoRepository.findNoProjectToDo();
+        List<ToDo> allToDoList = toDoRepository.findAll();
+        allToDoList.removeAll(noProToDoList);
+        for (ToDo t : allToDoList) {
+            System.out.println(t.getTitle());
+        } */
     }
 }

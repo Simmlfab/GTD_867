@@ -134,4 +134,11 @@ public class ToDo {
         this.doneDate = doneDate;
     }
     
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null || !(obj instanceof ToDo)) return false;
+        ToDo other = (ToDo) obj;
+        return other.id == this.id;
+    }
 }
