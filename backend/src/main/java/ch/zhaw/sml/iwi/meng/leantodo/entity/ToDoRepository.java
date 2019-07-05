@@ -22,9 +22,9 @@ public interface ToDoRepository extends JpaRepository<ToDo,Long> {
     public List<ToDo> findToDoToday(String owner);
 
     /* @Query("SELECT * FROM PROJECT_TO_DOS LEFT JOIN TO_DO WHERE PROJECT_TO_DOS.TO_DOS_ID != TO_DO.ID AND TO_DO.archived = false")
-    public List<ToDo> findAllToDosWithoutAProject(String owner); 
+    public List<ToDo> findAllToDosWithoutAProject(String owner); */
+
+    @Query("SELECT t FROM ToDo as t WHERE t.owner = ?1 AND t.archived = true")
+    public List<ToDo> findAllArchivedByOwner(String owner);
     
-    
-    
-    SELECT * FROM TO_DO WHERE TO_DO.archived = false AND CAST(Date AS DATE) = CURRENT_DATE() ORDER by TO_DO.DATE asc*/
 }

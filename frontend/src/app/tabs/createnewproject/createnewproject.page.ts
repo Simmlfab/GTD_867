@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Project } from '../../model/project';
-import { NavController, NavParams, AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
+import { Project } from 'src/app/model/project';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-createnewproject',
@@ -78,6 +79,7 @@ export class CreatenewprojectPage implements OnInit {
     } */
   }
 
+<<<<<<< HEAD
   public deleteTask() {
     /* this.taskProvider.deleteTask(this.task).subscribe(response => {
       if (response.successful) {
@@ -86,6 +88,18 @@ export class CreatenewprojectPage implements OnInit {
         if (this.taskList !== undefined) {
           const idx = this.taskList.indexOf(this.task);
           this.taskList.splice(idx, 1);
+=======
+  async addProject() {
+    if (this.newProject.title != null && this.newProject.title != "" && this.newProject.priority !=null ) { 
+      this.projectService.addNewProject(this.newProject).subscribe(
+        data => {
+          console.log("Successfully added new project.");
+          this.newProject = new Project();
+          this.router.navigateByUrl('/tabs/projects');
+        }, err => {
+          console.log(err);
+          this.router.navigateByUrl('/login');
+>>>>>>> 82421e1d74ad25e5d1f5ae8214d1f27111528c43
         }
         //Auf die rootpage zurückkehren
         this.navCtrl.popToRoot();
@@ -132,4 +146,7 @@ export class CreatenewprojectPage implements OnInit {
   ngOnInit() {
   }
 
+  async backProject(){
+    this.router.navigateByUrl('/tabs/projects');
+  }
 }

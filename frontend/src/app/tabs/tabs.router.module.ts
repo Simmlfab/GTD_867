@@ -22,6 +22,14 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: './projects/projects.module#ProjectsPageModule'
+          },
+          {
+            path: 'createnewproject',
+            loadChildren: './createnewproject/createnewproject.module#CreatenewprojectPageModule'
+          },
+          {
+            path: ':id',
+            loadChildren: './projectdetail/projectdetail.module#ProjectdetailPageModule'
           }
         ]
       },
@@ -38,6 +46,15 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/timerecord',
         pathMatch: 'full'
+      },
+      {
+        path: 'archived',
+        children: [
+          {
+            path: '',
+            loadChildren: './archived/archived.module#ArchivedPageModule'
+          }
+        ]
       }
     ]
   },

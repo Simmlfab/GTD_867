@@ -23,6 +23,10 @@ public class ToDoController {
         return toDoRepository.findAllButArchivedByOwner(loginName);
     }
 
+    public List<ToDo> listAllArchivedToDos(String loginName) {
+        return toDoRepository.findAllArchivedByOwner(loginName);
+    }
+
     public void persistToDo(ToDo newToDo, String owner) {
         newToDo.setOwner(owner);
         newToDo.setId(null);
@@ -35,6 +39,7 @@ public class ToDoController {
         if(orig == null || !orig.getOwner().equals(owner)) {
             return;
         }
+        toDo.setOwner(owner);
         // Ok, let's overwrite the existing toDo.
         toDoRepository.save(toDo);
     }

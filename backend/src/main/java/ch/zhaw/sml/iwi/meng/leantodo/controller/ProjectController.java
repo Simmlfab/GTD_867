@@ -1,5 +1,6 @@
 package ch.zhaw.sml.iwi.meng.leantodo.controller;
 
+import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class ProjectController {
     public List<Project> listAllProjects(String loginName) {
         return projectRepository.findByOwner(loginName);
     }
+    public Project projectByIdAndOwner(String loginName, Long id) {
+        return projectRepository.findProjectByIdAndOwner(loginName, id);
+    }
 
     public void persistProject(Project newProject, String owner) {
         newProject.setId(null);
@@ -30,6 +34,15 @@ public class ProjectController {
         newProject.getToDos().clear();
         newProject.setOwner(owner);
         projectRepository.save(newProject);
+    }
+    public void updateProject(Project project, String owner) {
+        Project orig = projectRepository.getOne(project.getId());
+        // Check if the original ToDo was present and that it belonged to the same owner
+        if(orig == null || !orig.getOwner().equals(owner)) {
+            return;
+        }
+        // Ok, let's overwrite the existing toDo.
+        projectRepository.save(project);
     }
 
     public void addToDo(Long projectId, ToDo toDo, String owner) {

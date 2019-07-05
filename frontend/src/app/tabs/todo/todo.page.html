@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Active ToDos</ion-title>
+    <ion-title>Daily ToDos</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,17 +26,15 @@
     </ion-item>
   </ion-list>
   <ion-item>
-    <ion-input type="text" placeholder="New Todo Title" [(ngModel)]="newToDo.title"></ion-input>
+    <ion-input type="text" placeholder="   New Todo Title" [(ngModel)]="newToDo.title"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>DD MMM YYYY HH:mm</ion-label>
-    <ion-datetime displayFormat="D MMM YYYY H:mm" min="2019" max="2099" [(ngModel)]="newToDo.date"></ion-datetime>
+    <ion-datetime placeholder="Please insert date" displayFormat="D MMM YYYY HH:mm" min="2019" max="2099" [(ngModel)]="newToDo.date"></ion-datetime>
   </ion-item>
 
 
   <div padding>
     <ion-button (click)="addToDo()">Add New ToDo</ion-button>
-    <ion-button (click)="showArchive()">Show Archive</ion-button>
   </div>
 
 </ion-content>

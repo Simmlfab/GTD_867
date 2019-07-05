@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Projectdetail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Title:</ion-label>
+            <ion-input [(ngModel)]="projectID.title "></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col>
+          <ion-item>
+            <ion-label>Descrition:</ion-label>
+            <ion-input [(ngModel)]="projectID.description" ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Priority:</ion-label>
+            <ion-select [(ngModel)]="projectID.priority" required="True">
+                <ion-select-option value="low">low</ion-select-option>
+                <ion-select-option value="middle">middle</ion-select-option>
+                <ion-select-option value="high">high</ion-select-option>
+              </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+        
+    <ion-list>
+      <ion-list-header>ToDos</ion-list-header>
+      <ion-item *ngFor="let todo of allToDos">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              {{todo.title}
+            </ion-col>
+            <ion-col>
+              {{todo.date | date:'EEE, dd.MM.yyyy, hh:mm' }}
+            </ion-col>
+            <ion-col>
+              <ion-button color="danger" *ngIf="!todo.done && !todo.archived"
+                (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
+              <ion-button color="success" *ngIf="todo.done && !todo.archived"
+                (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="   New Todo Title" [(ngModel)] ="newToDo.title" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime placeholder="Please insert date" displayFormat="D MMM YYYY HH:mm" min="2019" max="2099" [(ngModel)]="newToDo.date"></ion-datetime>
+    </ion-item>
+    <div padding>
+        <ion-button (click)="addToDo()">Add New ToDo</ion-button>
+      </div>
+    
+    </ion-content>

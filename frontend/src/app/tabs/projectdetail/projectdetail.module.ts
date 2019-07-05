@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TimerecordPage } from './timerecord.page';
-
-import { NgCalendarModule } from 'ionic2-calendar';
+import { ProjectdetailPage } from './projectdetail.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TimerecordPage
+    component: ProjectdetailPage
   }
 ];
 
@@ -21,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    NgCalendarModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TimerecordPage]
+  declarations: [ProjectdetailPage]
 })
-export class TimerecordPageModule {}
+export class ProjectdetailPageModule {}
