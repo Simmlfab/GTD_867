@@ -3,5 +3,5 @@ export class Project {
     public title: string;
     public owner: string;
     public description: string;
-    public priority: number;
+    public priority: string;
 }

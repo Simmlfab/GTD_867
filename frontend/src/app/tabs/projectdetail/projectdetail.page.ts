@@ -28,7 +28,7 @@ export class ProjectdetailPage implements OnInit {
     this.projectService.getProject(this.id).subscribe(
       data => {
         this.projectID = data;
-        console.log("ok2")
+        console.log(this.projectID)
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/login');

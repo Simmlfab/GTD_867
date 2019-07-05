@@ -8,30 +8,37 @@
   
     <ion-grid>
       <ion-row>
+        <ion-col>
           <ion-item>
             <ion-label>Title:</ion-label>
             <ion-input [(ngModel)]="projectID.title "></ion-input>
           </ion-item>
+        </ion-col>
       </ion-row>
       <ion-row>
+      <ion-col>
           <ion-item>
             <ion-label>Descrition:</ion-label>
             <ion-input [(ngModel)]="projectID.description" ></ion-input>
           </ion-item>
+        </ion-col>
       </ion-row>
       <ion-row>
+        <ion-col>
           <ion-item>
             <ion-label>Priority:</ion-label>
-            <ion-input [(ngModel)]="projectID.priority"></ion-input>
+            <ion-select [(ngModel)]="projectID.priority" required="True">
+                <ion-select-option value="low">low</ion-select-option>
+                <ion-select-option value="middle">middle</ion-select-option>
+                <ion-select-option value="high">high</ion-select-option>
+              </ion-select>
           </ion-item>
+        </ion-col>
       </ion-row>
     </ion-grid>
         
-      
-      
-    
-  
     <ion-list>
+      <ion-list-header>ToDos</ion-list-header>
       <ion-item *ngFor="let todo of allToDos">
         <ion-grid>
           <ion-row>
@@ -57,3 +64,8 @@
     <ion-item>
       <ion-datetime placeholder="Please insert date" displayFormat="D MMM YYYY HH:mm" min="2019" max="2099"></ion-datetime>
     </ion-item>
+    <div padding>
+        <ion-button (click)="addToDo()">Add New ToDo</ion-button>
+      </div>
+    
+    </ion-content>
