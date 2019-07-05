@@ -19,6 +19,10 @@ export class TodoPage implements OnInit {
     this.reloadAllToDos();
   }
 
+  ionViewDidEnter(){
+    this.reloadAllToDos();
+  }
+
   async addToDo() {
     if (this.newToDo.title != null && this.newToDo.title != "") { 
       this.toDoService.addNewToDo(this.newToDo).subscribe(

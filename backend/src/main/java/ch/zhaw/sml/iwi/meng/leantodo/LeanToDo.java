@@ -71,7 +71,7 @@ public class LeanToDo implements CommandLineRunner {
 
         Project project = new Project();
         project.setTitle("Geburtstagsparty für Kevin organisieren");
-        project.setDescription("Organisation von Kevins Geburtstag. Raum mieten, Freunde Einladen, Sachen einkafen etc.");
+        project.setDescription("Organisation von Kevins Geburtstag: Raum mieten, Freunde einladen, Sachen einkaufen etc.");
         project.setOwner("user");
         project.setPriority("low");
         projectRepository.save(project);
