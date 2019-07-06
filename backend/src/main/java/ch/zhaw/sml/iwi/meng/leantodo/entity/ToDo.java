@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -134,11 +133,4 @@ public class ToDo {
         this.doneDate = doneDate;
     }
     
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == null || !(obj instanceof ToDo)) return false;
-        ToDo other = (ToDo) obj;
-        return other.id == this.id;
-    }
 }

@@ -13,7 +13,7 @@
             {{todo.title}}
           </ion-col>
           <ion-col>
-            {{todo.date}}{{dateTime}}
+            {{todo.date | date:'EEE, dd.MM.yyyy, hh:mm' }}
           </ion-col>
           <ion-col>
             <ion-button color="danger" *ngIf="!todo.done && !todo.archived"

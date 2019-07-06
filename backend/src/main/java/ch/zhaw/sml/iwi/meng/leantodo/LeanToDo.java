@@ -1,9 +1,6 @@
 package ch.zhaw.sml.iwi.meng.leantodo;
 
 import java.util.Date;
-import java.util.List;
-
-import javax.print.attribute.standard.DateTimeAtCreation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -72,25 +69,6 @@ public class LeanToDo implements CommandLineRunner {
         u.getRoles().add(r);
         userRepository.save(u);
 
-        ToDo toDo = new ToDo();
-        toDo.setTitle("Finish This app");
-        toDo.setOwner("user");
-        toDo.setDate(new Date());
-        toDoRepository.save(toDo);
-
-        toDo = new ToDo();
-        toDo.setTitle("Reply to student");
-        toDo.setOwner("user");
-        toDo.setDate(new Date());
-        toDoRepository.save(toDo);
-
-        toDo = new ToDo();
-        toDo.setTitle("Geburtstagskuchen backen");
-        toDo.setOwner("user");
-        toDo.setDate(new Date());
-        toDoRepository.save(toDo);
-
-
         Project project = new Project();
         project.setTitle("Geburtstagsparty für Kevin organisieren");
         project.setDescription("Organisation von Kevins Geburtstag: Raum mieten, Freunde einladen, Sachen einkaufen etc.");
@@ -105,18 +83,16 @@ public class LeanToDo implements CommandLineRunner {
         project.setPriority("middle");
         projectRepository.save(project);
 
-        /* List<ToDo> noProToDoList = toDoRepository.findNoProjectToDo();
-        List<ToDo> allToDoList = toDoRepository.findAll();
-        allToDoList.removeAll(noProToDoList);
-        for (ToDo t : allToDoList) {
-            System.out.println(t.getTitle());
-        } */
+        ToDo toDo = new ToDo();
+        toDo.setTitle("Finish This app");
+        toDo.setOwner("user");
+        toDo.setDate(new Date());
+        toDoRepository.save(toDo);
 
-        /* List<ToDo> noProToDoList = toDoRepository.findNoProjectToDo();
-        List<ToDo> allToDoList = toDoRepository.findAll();
-        allToDoList.removeAll(noProToDoList);
-        for (ToDo t : allToDoList) {
-            System.out.println(t.getTitle());
-        } */
+        toDo = new ToDo();
+        toDo.setTitle("Reply to student");
+        toDo.setOwner("user");
+        toDo.setDate(new Date());
+        toDoRepository.save(toDo);
     }
 }

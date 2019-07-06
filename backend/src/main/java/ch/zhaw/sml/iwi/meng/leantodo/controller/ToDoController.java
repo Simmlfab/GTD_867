@@ -15,10 +15,6 @@ public class ToDoController {
     @Autowired
     private ToDoRepository toDoRepository;
 
-/*     public List<ToDo> listAllToDos(String loginName) {
-        return toDoRepository.findAllButArchivedByOwner(loginName);
-    } */
-
     public List<ToDo> listAllToDos(String loginName) {
         return toDoRepository.findAllButArchivedByOwner(loginName);
     }
