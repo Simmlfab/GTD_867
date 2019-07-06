@@ -1,6 +1,8 @@
 package ch.zhaw.sml.iwi.meng.leantodo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -94,5 +96,16 @@ public class LeanToDo implements CommandLineRunner {
         toDo.setOwner("user");
         toDo.setDate(new Date());
         toDoRepository.save(toDo);
+
+        toDo = new ToDo();
+        toDo.setTitle("TestToDo For Project");
+        toDo.setOwner("user");
+        toDo.setDate(new Date());
+        toDoRepository.save(toDo);
+
+        List<ToDo> toDos = new ArrayList<>();
+        toDos.add(toDo);
+        project.setToDos(toDos);
+        projectRepository.save(project);
     }
 }

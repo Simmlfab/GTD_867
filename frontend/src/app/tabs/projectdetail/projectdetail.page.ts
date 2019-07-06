@@ -13,6 +13,9 @@ import { TodoService } from 'src/app/services/todo.service';
 export class ProjectdetailPage implements OnInit {
   public projectID: Project = new Project;
   public newToDo: ToDo = new ToDo();
+  public allToDosFromProject: ToDo[] = [];
+
+
   constructor(private router:Router, private activatedRoute:ActivatedRoute, private projectService:ProjectService, private toDoService: TodoService) { }
   
   id: number ; 
@@ -21,31 +24,35 @@ export class ProjectdetailPage implements OnInit {
     this.id = this.activatedRoute.snapshot.params.id;
     console.log(this.id);
     this.reloadProject();
+    this.reloadAllToDos();
   }
   ionViewDidEnter(){
     this.reloadProject();
+    this.reloadAllToDos();
   }
 
   async addToDo() {
     if (this.newToDo.title != null && this.newToDo.title != "") { 
       this.toDoService.addNewToDo(this.newToDo).subscribe(
         data => {
+          //NewAddToDo wird nicht richtig in die ArrayList von Projekt gespeichert
+          this.projectService.addNewToDo(this.projectID.id, this.newToDo);
           this.reloadProject();
+          this.reloadAllToDos();
         }, err => {
           console.log(err);
           this.router.navigateByUrl('/login');
         }
       );
-      debugger
-      //NewAddToDo wird nicht richtig in die ArrayList von Projekt gespeichert
-      this.projectService.addNewToDo(this.projectID.id, this.newToDo);
+      
     }
   }
 
   //for schleife, alltodos von diesem Projekt
-  //query how to get only todos from this project (Previn)
-
-  //Back button zurück zu Projects!
+  public reloadAllToDos() {
+    debugger
+    this.allToDosFromProject = this.projectID.toDo;
+  }
 
   public reloadProject() {
     this.projectService.getProject(this.id).subscribe(
@@ -58,6 +65,8 @@ export class ProjectdetailPage implements OnInit {
       }
     );
   }
-  
 
+  async backProject(){
+    this.router.navigateByUrl('/tabs/projects');
+  }
 }
