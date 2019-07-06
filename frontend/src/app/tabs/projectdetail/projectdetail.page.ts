@@ -35,8 +35,10 @@ export class ProjectdetailPage implements OnInit {
     if (this.newToDo.title != null && this.newToDo.title != "") { 
       this.toDoService.addNewToDo(this.newToDo).subscribe(
         data => {
+      
           //NewAddToDo wird nicht richtig in die ArrayList von Projekt gespeichert
           this.projectService.addNewToDo(this.projectID.id, this.newToDo);
+            
           this.reloadProject();
           this.reloadAllToDos();
         }, err => {
@@ -46,6 +48,18 @@ export class ProjectdetailPage implements OnInit {
       );
       
     }
+  }
+ 
+  public updateProject(project: Project) {
+    this.projectService.updateProject(this.projectID).subscribe(
+      data => {
+        console.log("Successfully updated todo.");
+        this.reloadAllToDos();
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/login');
+      }
+    );
   }
 
   //for schleife, alltodos von diesem Projekt
