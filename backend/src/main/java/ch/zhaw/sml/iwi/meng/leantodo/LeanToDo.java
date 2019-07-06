@@ -105,6 +105,18 @@ public class LeanToDo implements CommandLineRunner {
         project.setPriority("middle");
         projectRepository.save(project);
 
-        
+        /* List<ToDo> noProToDoList = toDoRepository.findNoProjectToDo();
+        List<ToDo> allToDoList = toDoRepository.findAll();
+        allToDoList.removeAll(noProToDoList);
+        for (ToDo t : allToDoList) {
+            System.out.println(t.getTitle());
+        } */
+
+        /* List<ToDo> noProToDoList = toDoRepository.findNoProjectToDo();
+        List<ToDo> allToDoList = toDoRepository.findAll();
+        allToDoList.removeAll(noProToDoList);
+        for (ToDo t : allToDoList) {
+            System.out.println(t.getTitle());
+        } */
     }
 }
